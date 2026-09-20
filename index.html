@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>ChimiApps | Aplicaciones para hacer las cosas más fáciles</title>
+
+  <meta name="description" content="ChimiApps desarrolla aplicaciones móviles prácticas, accesibles e innovadoras para facilitar las actividades de todos los días.">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f6f8fb;
+      color: #172033;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .container {
+      width: min(1120px, 92%);
+      margin: auto;
+    }
+
+    /* HEADER */
+
+    header {
+      background: #ffffff;
+      border-bottom: 1px solid #e7eaf0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .nav {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+
+    .logo {
+      font-size: 25px;
+      font-weight: 800;
+      color: #173b73;
+      letter-spacing: -0.5px;
+    }
+
+    .logo span {
+      color: #20a58a;
+    }
+
+    nav {
+      display: flex;
+      gap: 26px;
+      align-items: center;
+    }
+
+    nav a {
+      color: #4a5568;
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    nav a:hover {
+      color: #173b73;
+    }
+
+    /* HERO */
+
+    .hero {
+      background: linear-gradient(135deg, #173b73 0%, #215c9b 55%, #20a58a 100%);
+      color: white;
+      padding: 95px 0 100px;
+    }
+
+    .hero-content {
+      max-width: 800px;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      padding: 8px 15px;
+      border: 1px solid rgba(255,255,255,.3);
+      background: rgba(255,255,255,.1);
+      border-radius: 30px;
+      font-size: 14px;
+      margin-bottom: 22px;
+    }
+
+    .hero h1 {
+      font-size: clamp(42px, 7vw, 70px);
+      line-height: 1.05;
+      margin-bottom: 24px;
+      letter-spacing: -2px;
+    }
+
+    .hero p {
+      max-width: 680px;
+      font-size: 20px;
+      color: rgba(255,255,255,.9);
+      margin-bottom: 35px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 14px 23px;
+      border-radius: 10px;
+      font-weight: 700;
+      transition: .2s;
+    }
+
+    .button-primary {
+      background: white;
+      color: #173b73;
+    }
+
+    .button-primary:hover {
+      transform: translateY(-2px);
+    }
+
+    /* GENERAL */
+
+    section {
+      padding: 85px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .section-title h2 {
+      font-size: 38px;
+      margin-bottom: 12px;
+      color: #172033;
+    }
+
+    .section-title p {
+      color: #667085;
+      max-width: 680px;
+      margin: auto;
+    }
+
+    /* APPS */
+
+    .apps-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
+    }
+
+    .app-card {
+      background: white;
+      border: 1px solid #e5e9f0;
+      border-radius: 18px;
+      padding: 30px;
+      box-shadow: 0 8px 30px rgba(23, 32, 51, .06);
+      transition: .25s;
+    }
+
+    .app-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 14px 35px rgba(23, 32, 51, .10);
+    }
+
+    .app-icon {
+      width: 65px;
+      height: 65px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #eef4fb;
+      border-radius: 16px;
+      font-size: 31px;
+      margin-bottom: 20px;
+    }
+
+    .app-card h3 {
+      font-size: 25px;
+      margin-bottom: 8px;
+      color: #173b73;
+    }
+
+    .app-card .slogan {
+      font-weight: 700;
+      color: #20a58a;
+      margin-bottom: 14px;
+    }
+
+    .app-card p {
+      color: #667085;
+      margin-bottom: 22px;
+    }
+
+    .app-button {
+      display: inline-block;
+      border: 1px solid #d7deea;
+      padding: 10px 17px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 700;
+      color: #173b73;
+    }
+
+    .app-button:hover {
+      background: #173b73;
+      color: white;
+    }
+
+    /* ABOUT */
+
+    .about {
+      background: white;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 55px;
+      align-items: center;
+    }
+
+    .about h2 {
+      font-size: 38px;
+      margin-bottom: 18px;
+    }
+
+    .about p {
+      color: #667085;
+      margin-bottom: 15px;
+    }
+
+    .features {
+      display: grid;
+      gap: 15px;
+    }
+
+    .feature {
+      background: #f6f8fb;
+      border-radius: 12px;
+      padding: 18px;
+    }
+
+    .feature strong {
+      display: block;
+      color: #173b73;
+      margin-bottom: 4px;
+    }
+
+    .feature span {
+      color: #667085;
+      font-size: 14px;
+    }
+
+    /* FUTURE */
+
+    .future {
+      text-align: center;
+      background: #f0f5f8;
+    }
+
+    .future-box {
+      max-width: 780px;
+      margin: auto;
+    }
+
+    .future h2 {
+      font-size: 36px;
+      margin-bottom: 15px;
+    }
+
+    .future p {
+      color: #667085;
+    }
+
+    /* FOOTER */
+
+    footer {
+      background: #101a2b;
+      color: white;
+      padding: 50px 0 25px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    footer .logo {
+      color: white;
+      margin-bottom: 15px;
+      display: inline-block;
+    }
+
+    footer p {
+      color: #aeb7c6;
+      font-size: 14px;
+      max-width: 430px;
+    }
+
+    footer h4 {
+      margin-bottom: 12px;
+    }
+
+    footer a {
+      display: block;
+      color: #aeb7c6;
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+
+    footer a:hover {
+      color: white;
+    }
+
+    .copyright {
+      border-top: 1px solid rgba(255,255,255,.1);
+      padding-top: 22px;
+      color: #8792a5;
+      font-size: 13px;
+      text-align: center;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 800px) {
+
+      nav {
+        display: none;
+      }
+
+      .hero {
+        padding: 70px 0;
+      }
+
+      .hero p {
+        font-size: 18px;
+      }
+
+      .apps-grid,
+      .about-grid,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 65px 0;
+      }
+
+      .section-title h2,
+      .about h2,
+      .future h2 {
+        font-size: 31px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+
+  <header>
+    <div class="container nav">
+
+      <a href="#" class="logo">
+        Chimi<span>Apps</span>
+      </a>
+
+      <nav>
+        <a href="#inicio">Inicio</a>
+        <a href="#aplicaciones">Aplicaciones</a>
+        <a href="#nosotros">Nosotros</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+
+    </div>
+  </header>
+
+
+  <!-- HERO -->
+
+  <section class="hero" id="inicio">
+
+    <div class="container">
+
+      <div class="hero-content">
+
+        <div class="hero-badge">
+          Aplicaciones móviles
+        </div>
+
+        <h1>
+          Tecnología para hacer las cosas más fáciles.
+        </h1>
+
+        <p>
+          En ChimiApps desarrollamos aplicaciones prácticas,
+          accesibles e innovadoras pensadas para resolver
+          necesidades reales de las personas.
+        </p>
+
+        <a href="#aplicaciones" class="button button-primary">
+          Conoce nuestras aplicaciones
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- APPLICATIONS -->
+
+  <section id="aplicaciones">
+
+    <div class="container">
+
+      <div class="section-title">
+
+        <h2>Nuestras aplicaciones</h2>
+
+        <p>
+          Conoce las herramientas que estamos desarrollando
+          para facilitar diferentes actividades de la vida diaria.
+        </p>
+
+      </div>
+
+
+      <div class="apps-grid">
+
+
+        <!-- VALUAUTO -->
+
+        <article class="app-card">
+
+          <div class="app-icon">
+            🚗
+          </div>
+
+          <h3>Valuauto</h3>
+
+          <div class="slogan">
+            Conoce el valor de tu vehículo.
+          </div>
+
+          <p>
+            Una aplicación diseñada para consultar y analizar
+            referencias de mercado de vehículos y obtener una
+            estimación de valor de forma sencilla.
+          </p>
+
+          <a href="#" class="app-button">
+            Conocer Valuauto →
+          </a>
+
+        </article>
+
+
+        <!-- FISCAI -->
+
+        <article class="app-card">
+
+          <div class="app-icon">
+            🧾
+          </div>
+
+          <h3>FiscAI México</h3>
+
+          <div class="slogan">
+            Tu asistente fiscal inteligente.
+          </div>
+
+          <p>
+            Herramienta de orientación fiscal que ayuda a
+            comprender posibles regímenes, obligaciones,
+            declaraciones y situaciones relacionadas con
+            el cumplimiento fiscal en México.
+          </p>
+
+          <a href="#" class="app-button">
+            Conocer FiscAI →
+          </a>
+
+        </article>
+
+
+        <!-- OFICIO SEGURO -->
+
+        <article class="app-card">
+
+          <div class="app-icon">
+            🛠️
+          </div>
+
+          <h3>Oficio Seguro MX</h3>
+
+          <div class="slogan">
+            Encuentra profesionales y contacta.
+          </div>
+
+          <p>
+            Directorio pensado para facilitar la búsqueda
+            de personas que ofrecen servicios como plomería,
+            electricidad, mecánica, pintura, carpintería
+            y otros oficios.
+          </p>
+
+          <a href="#" class="app-button">
+            Conocer Oficio Seguro →
+          </a>
+
+        </article>
+
+
+        <!-- DEFENSAMX -->
+
+        <article class="app-card">
+
+          <div class="app-icon">
+            🛡️
+          </div>
+
+          <h3>DefensaMX</h3>
+
+          <div class="slogan">
+            ¿Te pasó algo? Te decimos qué puedes hacer.
+          </div>
+
+          <p>
+            Aplicación de orientación que busca proporcionar
+            información útil sobre diferentes situaciones
+            y las alternativas que pueden existir para
+            atenderlas.
+          </p>
+
+          <a href="#" class="app-button">
+            Conocer DefensaMX →
+          </a>
+
+        </article>
+
+
+        <!-- AHORRAMX -->
+
+        <article class="app-card">
+
+          <div class="app-icon">
+            💰
+          </div>
+
+          <h3>AhorraMX</h3>
+
+          <div class="slogan">
+            Organiza mejor tu dinero.
+          </div>
+
+          <p>
+            Una aplicación enfocada en ayudar a las personas
+            a organizar sus gastos, visualizar sus objetivos
+            y desarrollar mejores hábitos de ahorro.
+          </p>
+
+          <a href="#" class="app-button">
+            Conocer AhorraMX →
+          </a>
+
+        </article>
+
+
+        <!-- FUTURE -->
+
+        <article class="app-card">
+
+          <div class="app-icon">
+            ✨
+          </div>
+
+          <h3>Próximamente</h3>
+
+          <div class="slogan">
+            Nuevas ideas en desarrollo.
+          </div>
+
+          <p>
+            ChimiApps continuará incorporando nuevas
+            aplicaciones y herramientas enfocadas en
+            resolver necesidades reales.
+          </p>
+
+          <a href="#contacto" class="app-button">
+            Mantente informado →
+          </a>
+
+        </article>
+
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ABOUT -->
+
+  <section class="about" id="nosotros">
+
+    <div class="container about-grid">
+
+      <div>
+
+        <h2>¿Qué es ChimiApps?</h2>
+
+        <p>
+          ChimiApps es un proyecto dedicado al desarrollo
+          de aplicaciones móviles enfocadas en ofrecer
+          soluciones prácticas y fáciles de utilizar.
+        </p>
+
+        <p>
+          Nuestro objetivo es convertir ideas útiles en
+          herramientas digitales que puedan estar al alcance
+          de más personas.
+        </p>
+
+      </div>
+
+
+      <div class="features">
+
+        <div class="feature">
+          <strong>Soluciones prácticas</strong>
+          <span>
+            Aplicaciones creadas alrededor de necesidades concretas.
+          </span>
+        </div>
+
+        <div class="feature">
+          <strong>Diseño sencillo</strong>
+          <span>
+            Interfaces pensadas para que las funciones sean fáciles de encontrar.
+          </span>
+        </div>
+
+        <div class="feature">
+          <strong>Desarrollo continuo</strong>
+          <span>
+            Las aplicaciones pueden incorporar nuevas funciones y mejoras.
+          </span>
+        </div>
+
+        <div class="feature">
+          <strong>Accesibilidad</strong>
+          <span>
+            Buscamos que nuestras herramientas sean útiles para diferentes tipos de usuarios.
+          </span>
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- FUTURE -->
+
+  <section class="future">
+
+    <div class="container future-box">
+
+      <h2>Estamos construyendo más</h2>
+
+      <p>
+        ChimiApps es un proyecto en crecimiento.
+        Próximamente encontrarás aquí nuevas aplicaciones,
+        funcionalidades y herramientas.
+      </p>
+
+    </div>
+
+  </section>
+
+
+  <!-- FOOTER -->
+
+  <footer id="contacto">
+
+    <div class="container">
+
+      <div class="footer-grid">
+
+        <div>
+
+          <a href="#" class="logo">
+            Chimi<span>Apps</span>
+          </a>
+
+          <p>
+            Aplicaciones móviles creadas para ofrecer
+            soluciones prácticas, accesibles e innovadoras.
+          </p>
+
+        </div>
+
+
+        <div>
+
+          <h4>Aplicaciones</h4>
+
+          <a href="#aplicaciones">Valuauto</a>
+          <a href="#aplicaciones">FiscAI México</a>
+          <a href="#aplicaciones">Oficio Seguro MX</a>
+          <a href="#aplicaciones">DefensaMX</a>
+          <a href="#aplicaciones">AhorraMX</a>
+
+        </div>
+
+
+        <div>
+
+          <h4>Información</h4>
+
+          <a href="#">Aviso de privacidad</a>
+          <a href="#">Términos y condiciones</a>
+          <a href="mailto:contacto@chimiapps.com">Contacto</a>
+
+        </div>
+
+      </div>
+
+
+      <div class="copyright">
+
+        © 2026 ChimiApps. Todos los derechos reservados.
+
+      </div>
+
+    </div>
+
+  </footer>
+
+</body>
+</html>
