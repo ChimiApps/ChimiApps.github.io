@@ -55,15 +55,18 @@
     }
 
     .logo {
-      font-size: 25px;
-      font-weight: 800;
-      color: #173b73;
-      letter-spacing: -0.5px;
-    }
+    display: flex;
+    align-items: center;
+    height: 64px;
+    text-decoration: none;
+}
 
-    .logo span {
-      color: #20a58a;
-    }
+.logo img {
+    width: 125px;
+    height: 58px;
+    object-fit: contain;
+    display: block;
+}
 
     nav {
       display: flex;
@@ -341,10 +344,16 @@
     }
 
     footer .logo {
-      color: white;
-      margin-bottom: 15px;
-      display: inline-block;
-    }
+    margin-bottom: 15px;
+    display: inline-flex;
+    align-items: center;
+}
+
+footer .logo img {
+    width: 140px;
+    height: auto;
+    display: block;
+}
 
     footer p {
       color: #aeb7c6;
@@ -417,9 +426,9 @@
   <header>
     <div class="container nav">
 
-      <a href="#" class="logo">
-        Chimi<span>Apps</span>
-      </a>
+     <a href="#inicio" class="logo">
+    <img src="Pagina%20web.jpeg" alt="ChimiApps">
+</a>
 
       <nav>
         <a href="#inicio">Inicio</a>
